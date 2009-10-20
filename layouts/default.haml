@@ -1,0 +1,17 @@
+!!! XML
+!!!
+%html
+  %head
+    %title= "Tasty Cactus Software - " + @item[:title]
+    %link{:rel => "stylesheet", :type => "text/css", :href => "/stylesheets/style.css", :media => "screen"}
+  %body
+    #page_wrapper
+      #page_header
+        %h1 Tasty Cactus Software, LLC
+      #main
+        #right_side
+          %h3 Projects
+          %p Timesheet
+        #left_side
+          = yield
+        #spacer

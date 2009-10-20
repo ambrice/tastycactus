@@ -1,7 +1,15 @@
 #!/usr/bin/env ruby
 
+compile '/stylesheets/*' do
+  filter :sass
+end
+
+route '/stylesheets/*' do
+  item.identifier.chop + '.css'
+end
+
 compile '*' do
-  filter :erb
+  filter :haml
   layout 'default'
 end
 
@@ -9,4 +17,4 @@ route '*' do
   item.identifier + 'index.html'
 end
 
-layout '*', :erb
+layout '*', :haml
