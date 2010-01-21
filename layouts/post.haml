@@ -1,0 +1,6 @@
+.post
+  %h4= link_to(@item[:title], @item.reps.find { |r| r.name == :default })
+  %h5
+    = 'Created at: ' + @item[:created_at]
+    = '( ' + link_to(@item[:title], @item.reps.find { |r| r.name == :default }.path + '#disqus_thread') + ' )'
+  = yield

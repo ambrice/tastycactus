@@ -1,0 +1,9 @@
+### Ultimate Rock-Paper-Scissors ###
+
+Ultimate RPS uses your Android phone and motion sensors to play Rock Paper Scissors.  Secretly select your choice, 
+hold the phone in your right hand, and bring it down three times into your left hand to display your selection.
+
+<% @site.sorted_articles.find_all {|a| a[:project] == 'Ultimate RPS' }.each do |post| %>
+<%= post.reps.find { |r| r.name == :default }.content_at_snapshot(:summary) %>
+<% end %>
+

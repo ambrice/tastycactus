@@ -1,0 +1,8 @@
+### News ###
+
+Welcome to Tasty Cactus Software.  Check out our tasty applications on your Android mobile phone.
+
+<% @site.sorted_articles[0, 10].each do |post| %>
+<%= post.reps.find { |r| r.name == :default }.content_at_snapshot(:summary) %>
+<% end %>
+

@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+# Stylesheets
+
 compile '/stylesheets/*' do
   filter :sass
 end
@@ -8,8 +10,39 @@ route '/stylesheets/*' do
   item.identifier.chop + '.css'
 end
 
+# Project pages
+
+compile '/projects/*' do
+  filter :erb
+  filter :bluecloth
+  layout 'default'
+end
+
+route '/projects/*' do
+  item.identifier + 'index.html'
+end
+
+# Posts
+
+compile '/posts/*' do
+  filter :erb
+  filter :bluecloth
+  layout 'post'
+  snapshot :summary
+  layout 'disqus'
+  layout 'default'
+end
+
+route '/posts/*' do
+  item.identifier + 'index.html'
+end
+
+
+# Defaults
+
 compile '*' do
-  filter :haml
+  filter :erb
+  filter :bluecloth
   layout 'default'
 end
 

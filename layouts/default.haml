@@ -3,15 +3,32 @@
 %html
   %head
     %title= "Tasty Cactus Software - " + @item[:title]
-    %link{:rel => "stylesheet", :type => "text/css", :href => "/stylesheets/style.css", :media => "screen"}
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylesheets/style.css', :media => 'screen'}
   %body
     #page_wrapper
       #page_header
         %h1 Tasty Cactus Software, LLC
       #main
         #right_side
+          %h3 Tasty Cactus
+          %p= link_to('Home', '/')
+          %p= link_to('About', '/about/')
           %h3 Projects
-          %p Timesheet
+          %p= link_to('Timesheet', '/projects/timesheet/')
+          %p= link_to('Ultimate RPS', '/projects/ultimaterps/')
         #left_side
           = yield
         #spacer
+    %script{:type => 'text/javascript'}
+      //<![CDATA[
+      (function() {
+      var links = document.getElementsByTagName('a');
+      var query = '?';
+      for(var i = 0; i < links.length; i++) {
+      if(links[i].href.indexOf('#disqus_thread') >= 0) {
+      query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+      }
+      }
+      document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/tastycactussoftware/get_num_replies.js' + query + '"></' + 'script>');
+      })();
+      //]]>

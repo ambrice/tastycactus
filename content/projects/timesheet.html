@@ -1,0 +1,11 @@
+### Timesheet ###
+
+Timesheet is an application designed primarily for contractors and freelancers to track the time spent on 
+different tasks.  
+
+You can add billable tasks and unbillable tasks (such as "Lunch") and get a daily or weekly report of time spent on each.
+
+<% @site.sorted_articles.find_all {|a| a[:project] == 'Timesheet' }.each do |post| %>
+<%= post.reps.find { |r| r.name == :default }.content_at_snapshot(:summary) %>
+<% end %>
+
